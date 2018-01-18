@@ -7,8 +7,6 @@ import java.io.IOException;
 
 public class GUI extends JFrame implements ActionListener {
 
-    private JPanel createCsvPanel;
-
     private JLabel chooseBaseFolderLabel;
     private JLabel chooseSaveLocationCsvLabel;
     private JButton chooseBaseFolderButton;
@@ -31,18 +29,16 @@ public class GUI extends JFrame implements ActionListener {
     private JLabel renameDoneLabel;
     private JButton renameButton;
 
-
-
     public GUI() {
         this.setTitle("Reorganize Files");
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        createCsvPanel = new JPanel();
+        JPanel panel = new JPanel();
         GridLayout layout = new GridLayout();
         layout.setRows(7);
         layout.setColumns(2);
-        createCsvPanel.setLayout(layout);
+        panel.setLayout(layout);
 
         baseFolder = new File("");
         saveLocationCsv = new File("");
@@ -61,7 +57,6 @@ public class GUI extends JFrame implements ActionListener {
         chooseInputCsv = new JFileChooser();
         chooseInputCsv.setFileSelectionMode(JFileChooser.FILES_ONLY);
         chooseInputCsv.setCurrentDirectory(new File("."));
-
 
         chooseBaseFolderLabel = new JLabel("");
         chooseBaseFolderButton = new JButton("Choose Location");
@@ -83,29 +78,28 @@ public class GUI extends JFrame implements ActionListener {
         renameButton = new JButton("Copy and Rename");
         renameButton.addActionListener(this);
 
-        createCsvPanel.add(chooseBaseFolderButton);
-        createCsvPanel.add(chooseBaseFolderLabel);
+        panel.add(chooseBaseFolderButton);
+        panel.add(chooseBaseFolderLabel);
 
-        createCsvPanel.add(chooseSaveLocationCsvButton);
-        createCsvPanel.add(chooseSaveLocationCsvLabel);
+        panel.add(chooseSaveLocationCsvButton);
+        panel.add(chooseSaveLocationCsvLabel);
 
-        createCsvPanel.add(createCsvButton);
-        createCsvPanel.add(createCsvDoneLabel);
+        panel.add(createCsvButton);
+        panel.add(createCsvDoneLabel);
 
-        createCsvPanel.add(new JLabel(""));
-        createCsvPanel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
 
-        createCsvPanel.add(chooseDestinationButton);
-        createCsvPanel.add(chooseDestinationLabel);
+        panel.add(chooseDestinationButton);
+        panel.add(chooseDestinationLabel);
 
-        createCsvPanel.add(chooseInputCsvButton);
-        createCsvPanel.add(chooseInputCsvLabel);
+        panel.add(chooseInputCsvButton);
+        panel.add(chooseInputCsvLabel);
 
-        createCsvPanel.add(renameButton);
-        createCsvPanel.add(renameDoneLabel);
+        panel.add(renameButton);
+        panel.add(renameDoneLabel);
 
-
-        this.add(createCsvPanel);
+        this.add(panel);
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
